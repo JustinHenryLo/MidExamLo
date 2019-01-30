@@ -1,0 +1,15 @@
+{% extends 'base.html' %} 
+
+{% block body %}
+
+<form action="{% url 'votes:update' id %}" method="POST">
+        {% csrf_token %}
+        <table>{{ candidate_form.as_table }}</table>
+        <input type="submit" value="Accept">
+        {{ candidate_form.errors }}
+    </form>
+
+    <br/>
+    <a href="{% url 'votes:index' %}">Home</a> 
+{% endblock %}
+

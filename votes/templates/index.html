@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+    <ol>
+        {% for c in candidates %}
+        <li>
+                <a href="{% url 'votes:detail' c.id %}"> {{ c.firstname }} {{ c.lastname }} {{ c.position.name }}</a> 
+        </li>
+        {% endfor %}
+    </ol>
+    <a href="{% url 'votes:create'%}">Create Candidate</a> 
+    <br/>
+    <a href="{% url 'votes:create_position'%}">Create Position</a> 
+{% endblock %}
+

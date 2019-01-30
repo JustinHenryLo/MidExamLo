@@ -1,0 +1,13 @@
+{% extends 'base.html' %} 
+
+{% block body %}
+
+<form action="{% url 'votes:create_position' %}" method="POST">
+    {% csrf_token %}
+    <table>{{ position_form.as_table }}</table>
+    <input type="submit" value="Accept">
+    {{ position_form.errors }}
+</form>
+
+{% endblock %}
+

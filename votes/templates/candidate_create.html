@@ -1,0 +1,26 @@
+{% extends 'base.html' %} 
+
+{% block body %}
+
+<form action="{% url 'votes:create' %}" method="POST">
+    {% csrf_token %}
+    firstname: {{ candidate_form.firstname  }}
+    <br/>
+    lastname: {{ candidate_form.lastname  }}
+    <br/>
+    position: {{ candidate_form.position  }}
+    <br/>
+    birthdate: <input type="date" {{ candidate_form.birthdate  }}> 
+    <br/>
+    platform: {{ candidate_form.platform  }}
+    <br/>
+    <input type="submit" value="Post">
+    {{ candidate_form.errors }}
+
+</form>
+<br/>
+<a href="{% url 'votes:index' %}">Home</a> 
+
+
+{% endblock %}
+
